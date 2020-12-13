@@ -19,6 +19,6 @@ class Users{
   city:string;
   
   @Column()
-  senha:string;
+  password:string;
 }
 export default Users;
