@@ -22,7 +22,7 @@ export class CreatePassengersTable1607809813835 implements MigrationInterface {
             },
             {
                 name:'cpf',
-                type:'int',
+                type:'varchar',
                 isUnique:true,
             },
         ],
