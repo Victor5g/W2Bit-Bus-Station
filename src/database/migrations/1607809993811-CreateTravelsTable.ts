@@ -14,11 +14,11 @@ export class CreateTravelsTable1607809993811 implements MigrationInterface {
             },
             {
                 name:'id_bus',
-                type:'int',
+                type:'varchar',
             },
             {
                 name:'id_passengers',
-                type:'int',
+                type:'varchar',
             },
         ],    
         }));
