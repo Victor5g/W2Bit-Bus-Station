@@ -12,7 +12,7 @@ class UserController{
     const passwordEqual = await repository.findOne({where:{password}});
 
     if(passwordEqual){
-      res.sendStatus(489);
+      return res.sendStatus(409);
     }
 
     const user = repository.create({name, image, state, city ,password});

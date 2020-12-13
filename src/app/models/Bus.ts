@@ -7,7 +7,7 @@ class Bus{
   id:string;
 
   @Column()
-  id_user:number;
+  id_user:string;
 
   @Column()
   vehicle_plate:string;

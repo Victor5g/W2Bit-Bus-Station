@@ -14,7 +14,7 @@ export class CreateBusTable1607809589383 implements MigrationInterface {
             },
             {
                 name:'id_user',
-                type:'int',
+                type:'varchar',
             },
             {
                 name:'vehicle_plate',
