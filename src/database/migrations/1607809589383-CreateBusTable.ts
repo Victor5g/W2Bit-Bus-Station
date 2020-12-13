@@ -31,7 +31,7 @@ export class CreateBusTable1607809589383 implements MigrationInterface {
             },
             {
                 name:'seat_amount',
-                type:'varchar',
+                type:'int',
             },
         ],
         }));
