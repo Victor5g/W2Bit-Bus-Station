@@ -7,10 +7,10 @@ class Travels{
   id:string;
 
   @Column()
-  id_bus:number;
+  id_bus:string;
 
   @Column()
-  id_passengers:number;
+  id_passengers:string;
 }
 
 export default Travels;

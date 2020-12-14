@@ -19,7 +19,7 @@ class Bus{
   model:string;
 
   @Column()
-  seat_amount:string;
+  seat_amount:number;
 }
 
 export default Bus;
