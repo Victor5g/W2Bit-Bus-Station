@@ -17,6 +17,8 @@ router.post('/bus',BusController.store);
 router.post('/passenger',Passengers.store);
 router.post('/travel',TravelController.store);
 
+router.put('/bus/:id',BusController.update);
+
 router.delete('/bus/:id',BusController.delete);
 
 export default router;

@@ -59,6 +59,36 @@ class  BusController{
 
 
 
+  async update(req:Request, res:Response){
+  const repository = getRepository(Bus);
+  const {id} = req.params;
+  const {vehicle_plate, year, model, seat_amount} = req.body;
+
+ try{
+
+    const idExist = await repository.findOne({id:id});
+
+    if(idExist){
+
+    await repository.createQueryBuilder().update(Bus)
+    .set({ vehicle_plate: vehicle_plate,
+           year: year,
+           model: model,
+           seat_amount:seat_amount })
+    .where("id = :id", { id: id }).execute();
+
+      return res.sendStatus(200);
+    }
+      return res.sendStatus(404);
+
+  } catch{
+    return res.sendStatus(400);
+
+  }
+}
+
+
+
   async delete(req: Request, res: Response){
     const repository = getRepository(Bus);
     const {id} = req.params;
