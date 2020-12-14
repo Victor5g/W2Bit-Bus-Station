@@ -6,19 +6,19 @@ import Bus from '../models/Bus';
 class  BusController{
 
   async store(req: Request, res: Response) {
-     const repository = getRepository(Bus);
-     const {id_user, vehicle_plate, year, model,seat_amount} = req.body;
+      const repository = getRepository(Bus);
+      const {id_user, vehicle_plate, year, model,seat_amount} = req.body;
 
-     const vehiclePlateEquals = await repository.findOne({where:{vehicle_plate}});
+      const vehiclePlateEquals = await repository.findOne({where:{vehicle_plate}});
 
     if(vehiclePlateEquals){
-      return res.sendStatus(409);
+          return res.sendStatus(409);
     }
 
-     const bus =  repository.create({id_user, vehicle_plate, year, model, seat_amount});
-     await repository.save(bus);
+      const bus =  repository.create({id_user, vehicle_plate, year, model, seat_amount});
+      await repository.save(bus);
 
-    return res.json(bus);
+      return res.json(bus);
   }
 
 
@@ -28,36 +28,56 @@ class  BusController{
       const bus = await repository.find();
       const result = Object.entries(bus).length;
 
-      if(result == 0){
-        return res.status(404).send(bus);
-      }
+    if(result == 0){
+        return res.status(404);
+    }
 
       return res.status(200).json(bus);
   }
+
+
 
    async specificListing(req: Request, res: Response){
       const repository = getRepository(Bus);
       const {id} = req.params;
 
-      try {
+    try {
 
       const bus =  await repository.findOneOrFail({id:id});
-      console.log(bus);
       const result = Object.entries(bus).length;
 
       if(result == 0){
-        return res.status(404).send(bus);
+        return res.status(404);
       }
-      return res.status(200).json(bus);
+        return res.status(200).json(bus);
         
-      } catch{
-        
+    } catch {
         return res.sendStatus(400);
+
       } 
   }
 
-  
-}
 
+
+  async delete(req: Request, res: Response){
+    const repository = getRepository(Bus);
+    const {id} = req.params;
+
+   try{
+
+      const idExist = await repository.findOne({id:id});
+
+      if(idExist){
+        const a = await repository.delete(id);
+        return res.sendStatus(200);
+      }
+        return res.sendStatus(404);
+
+    } catch{
+      return res.sendStatus(400);
+
+    }
+  }
+}
 
 export default new BusController;
