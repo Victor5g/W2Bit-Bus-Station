@@ -21,6 +21,7 @@ router.put('/bus/:id',BusController.update);
 router.put('/passenger/:id', PassengersContoller.update)
 
 router.delete('/bus/:id',BusController.delete);
+router.delete('/passenger/:id',PassengersContoller.delete);
 
 export default router;
 

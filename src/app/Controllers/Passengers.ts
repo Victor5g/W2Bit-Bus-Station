@@ -48,6 +48,27 @@ class PassengersController{
   
     }
   }
+
+
+
+  async delete(req: Request, res: Response){
+    const repository = getRepository(Passengers);
+    const {id} = req.params;
+
+   try{
+
+      const idExist = await repository.findOne({id:id});
+
+      if(idExist){
+        await repository.delete(id);
+        return res.sendStatus(200);
+      }
+        return res.sendStatus(404);
+
+    } catch {
+      return res.sendStatus(400);
+    }
+  }
 }
 
 export default new PassengersController;
