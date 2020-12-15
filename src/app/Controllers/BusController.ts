@@ -70,7 +70,7 @@ class  BusController{
 
     if(idExist){
 
-    await repository.createQueryBuilder().update(Bus)
+    await repository.createQueryBuilder().update()
     .set({ vehicle_plate: vehicle_plate,
            year: year,
            model: model,
