@@ -1,7 +1,8 @@
 import { Router } from 'express';
 import multer from 'multer';
 
-import { multerConfig } from './app/config/multer';
+import AuthController from './app/Controllers/AuthController';
+import { multerConfig } from './app/middleware/UploadMiddelware';
 import UserController from './app/Controllers/UserController';
 import BusController from './app/Controllers/BusController';
 import PassengersContoller from './app/Controllers/Passengers';
@@ -12,6 +13,7 @@ const router = Router();
 router .get('/bus',BusController.list);
 router .get('/bus/:id',BusController.specificListing);
 
+router.post('/auth',AuthController.authenticate);
 router.post('/users',multer(multerConfig).single('image'),UserController.store);
 router.post('/bus',BusController.store);
 router.post('/passenger',PassengersContoller.store);

@@ -9,6 +9,7 @@ class UserController{
     const {name, state, city, password} = req.body;
     const image = req.file.path;
 
+   try{
     const passwordEqual = await repository.findOne({where:{password}});
 
     if(passwordEqual){
@@ -17,9 +18,11 @@ class UserController{
 
     const user = repository.create({name, image, state, city ,password});
     await repository.save(user);
-
     return res.json(user);
 
+  } catch {
+    return res.sendStatus(400);
+  }
   }
 
 }

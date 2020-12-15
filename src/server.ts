@@ -1,6 +1,8 @@
+import'./app/config/env';
 import 'reflect-metadata';
 import express from 'express';
 
+import './app/config/env';
 import './database/connect';
 import routes from './router';
 
