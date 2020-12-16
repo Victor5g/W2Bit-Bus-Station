@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
+import fs from 'fs';
 
 import Users from '../models/Users';
 
@@ -13,7 +14,9 @@ class UserController{
     const passwordEqual = await repository.findOne({where:{password}});
 
     if(passwordEqual){
+      fs.unlinkSync(image);
       return res.sendStatus(409);
+
     }
 
     const user = repository.create({name, image, state, city ,password});
