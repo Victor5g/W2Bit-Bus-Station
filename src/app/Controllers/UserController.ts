@@ -24,7 +24,6 @@ class UserController{
     return res.sendStatus(400);
   }
   }
-
 }
 
 export default new UserController;

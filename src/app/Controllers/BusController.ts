@@ -7,14 +7,14 @@ class  BusController{
 
   async store(req: Request, res: Response) {
       const repository = getRepository(Bus);
-      const {id_user, vehicle_plate, year, model,seat_amount} = req.body;
+      const id_user = req.UserId;
+      const {vehicle_plate, year, model,seat_amount} = req.body;
 
       const vehiclePlateEquals = await repository.findOne({where:{vehicle_plate}});
 
     if(vehiclePlateEquals){
           return res.sendStatus(409);
     }
-
       const bus =  repository.create({id_user, vehicle_plate, year, model, seat_amount});
       await repository.save(bus);
 
@@ -22,10 +22,11 @@ class  BusController{
   }
 
 
-   async list(req: Request, res:Response){
+  async list(req: Request, res:Response){
       const repository = getRepository(Bus);
+      const id = req.UserId;
   
-      const bus = await repository.find();
+      const bus = await repository.find({where:{id_user:id}});
       const result = Object.entries(bus).length;
 
     if(result == 0){
@@ -37,7 +38,7 @@ class  BusController{
 
 
 
-   async specificListing(req: Request, res: Response){
+  async specificListing(req: Request, res: Response){
       const repository = getRepository(Bus);
       const {id} = req.params;
 
@@ -60,11 +61,11 @@ class  BusController{
 
 
   async update(req:Request, res:Response){
-  const repository = getRepository(Bus);
-  const {id} = req.params;
-  const {vehicle_plate, year, model, seat_amount} = req.body;
+      const repository = getRepository(Bus);
+      const {id} = req.params;
+      const {vehicle_plate, year, model, seat_amount} = req.body;
 
- try{
+   try{
 
     const idExist = await repository.findOne({id:id});
 
@@ -76,14 +77,13 @@ class  BusController{
            model: model,
            seat_amount:seat_amount })
     .where("id = :id", { id: id }).execute();
-
       return res.sendStatus(200);
     }
+
       return res.sendStatus(404);
 
   } catch{
     return res.sendStatus(400);
-
   }
 }
 
@@ -104,8 +104,7 @@ class  BusController{
         return res.sendStatus(404);
 
     } catch{
-      return res.sendStatus(400);
-
+      return res.sendStatus(400)
     }
   }
 }
