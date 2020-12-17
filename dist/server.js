@@ -12,4 +12,4 @@ var router_1 = __importDefault(require("./router"));
 var app = express_1.default();
 app.use(express_1.default.json());
 app.use(router_1.default);
-app.listen(3333, function () { return console.log("🔥 Server Started ✅"); });
+app.listen(process.env.PORT || 3333, function () { return console.log("🔥 Server Started ✅"); });
