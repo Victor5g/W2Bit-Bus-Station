@@ -67,6 +67,25 @@ var PassengersController = /** @class */ (function () {
             });
         });
     };
+    PassengersController.prototype.list = function (req, res) {
+        return __awaiter(this, void 0, void 0, function () {
+            var repository, passenger, result;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        repository = typeorm_1.getRepository(Passengers_1.default);
+                        return [4 /*yield*/, repository.find()];
+                    case 1:
+                        passenger = _a.sent();
+                        result = Object.entries(passenger).length;
+                        if (result == 0) {
+                            return [2 /*return*/, res.sendStatus(404)];
+                        }
+                        return [2 /*return*/, res.status(200).json(passenger)];
+                }
+            });
+        });
+    };
     PassengersController.prototype.update = function (req, res) {
         return __awaiter(this, void 0, void 0, function () {
             var repository, id, _a, name, age, cpf, idExist, _b;

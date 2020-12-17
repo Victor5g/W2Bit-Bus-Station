@@ -20,6 +20,20 @@ class PassengersController{
     return res.json(passengers);
   }
 
+  
+  async list(req: Request, res:Response){
+    const repository = getRepository(Passengers);
+
+    const passenger = await repository.find();
+    const result = Object.entries(passenger).length;
+
+  if(result == 0){
+      return res.sendStatus(404);
+  }
+
+    return res.status(200).json(passenger);
+}
+
 
   async update(req:Request, res:Response){
     const repository = getRepository(Passengers);

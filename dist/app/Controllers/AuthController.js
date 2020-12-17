@@ -56,7 +56,7 @@ var AuthController = /** @class */ (function () {
                         _c.label = 1;
                     case 1:
                         _c.trys.push([1, 3, , 4]);
-                        return [4 /*yield*/, repository.findOne({ where: { name: name } })];
+                        return [4 /*yield*/, repository.findOne({ where: { password: password } })];
                     case 2:
                         user = _c.sent();
                         if (!user) {

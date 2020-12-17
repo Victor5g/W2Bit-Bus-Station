@@ -10,12 +10,11 @@ class AuthController{
     const { name, password } = req.body;
 
    try{
-    const user = await repository.findOne({where:{name}});
+    const user = await repository.findOne({where:{password}});
 
     if(!user){
       return res.sendStatus(404);
     }
-
 
     if(password != user.password){
       return res.sendStatus(401);

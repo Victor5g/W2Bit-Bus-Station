@@ -15,6 +15,7 @@ var TravelsController_1 = __importDefault(require("./app/Controllers/TravelsCont
 var router = express_1.Router();
 router.get('/bus', authMiddleware_1.default, BusController_1.default.list);
 router.get('/bus/:id', authMiddleware_1.default, BusController_1.default.specificListing);
+router.get('/passenger', authMiddleware_1.default, Passengers_1.default.list);
 router.post('/auth', AuthController_1.default.authenticate);
 router.post('/users', multer_1.default(UploadMiddelware_1.multerConfig).single('image'), UserController_1.default.store); //Rever isso Agora
 router.post('/bus', authMiddleware_1.default, BusController_1.default.store);

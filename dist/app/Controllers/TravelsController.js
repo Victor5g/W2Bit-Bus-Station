@@ -54,20 +54,19 @@ var TravelsController = /** @class */ (function () {
                         repository = typeorm_1.getRepository(Travels_1.default);
                         verify = typeorm_1.getRepository(Bus_1.default);
                         _a = req.body, id_bus = _a.id_bus, id_passengers = _a.id_passengers;
-                        return [4 /*yield*/, repository.count({ where: { id_bus: { id_bus: id_bus } } })];
+                        return [4 /*yield*/, repository.count({ id_bus: id_bus })];
                     case 1:
                         amount = _b.sent();
                         return [4 /*yield*/, verify.findOne({ where: { id: id_bus } })];
                     case 2:
                         capacity = _b.sent();
-                        if (amount <= (capacity === null || capacity === void 0 ? void 0 : capacity.seat_amount)) {
-                            return [2 /*return*/, res.status(409).json({ "message": "Full bus" })];
-                        }
+                        if (!(amount < (capacity === null || capacity === void 0 ? void 0 : capacity.seat_amount))) return [3 /*break*/, 4];
                         Travel = repository.create({ id_bus: id_bus, id_passengers: id_passengers });
                         return [4 /*yield*/, repository.save(Travel)];
                     case 3:
                         _b.sent();
                         return [2 /*return*/, res.sendStatus(200)];
+                    case 4: return [2 /*return*/, res.status(409).json({ "message": "Full bus" })];
                 }
             });
         });
