@@ -6,4 +6,4 @@
 ## Architecture
 
 Developed in **NodeJS** with ***TypeScript*** allied to one of its ORM(***TypeORM***) using migrations and its framework **Express** with authentication JWT(JSON Web Token)
-along with the database PostgreSQL.
+along with the database ***PostgreSQL***.
