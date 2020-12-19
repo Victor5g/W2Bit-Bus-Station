@@ -19,7 +19,6 @@ Before you begin, you will need to have the following tools installed on your ma
 
 - [Node.JS](https://nodejs.org/en/)
 - [PostgreSQL](https://www.postgresql.org/)
-- [Insominia](https://insomnia.rest/products/core/) ou [Postman](https://www.postman.com/)
 
 ## Steps for Project Execution
 
