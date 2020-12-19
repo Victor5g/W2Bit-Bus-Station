@@ -36,12 +36,10 @@ Before you begin, you will need to have the following tools installed on your ma
 ### 2º-Step(Database creation)
 
 Create the database in PostgreSQL, and after that change the settings of the `ormconfig.json` file according to your settings. After that, run the command below to create all the database tables.
-
 ```
-
 $ npx typeorm migration:run
-
 ```
+
 or if you have yarn installed
 ```
 $ yarn typeorm migration:run
@@ -69,16 +67,7 @@ Okay, the API is already running and ready to receive requests.
 ## Api Endpoints
 
 
-
-
-
-
-
-
-
-
-
- - **POST (Autenticação)**
+ - **POST (Autenticação) 🔐**
  
  ##### URL
 
@@ -112,13 +101,82 @@ Exemplo de resposta:
 
 
 
+- **POST (Cadastrar Onibus) 🚌**
+ 
+ ##### URL
+
+```
+http://localhost:3333/bus
+
+```
+##### headers
+```
+headers:{
+authorization:'Bearer'+ "token do Usuario"
+}
+```
+##### body
+```
+{
+    "vehicle_plate":"4U7JS89",
+    "year":"2016",
+    "model":"Eecutivo",
+    "seat_amount":"108"
+}
+```
 
 
 
+- **POST (Criar Passageiro) 🧍‍♂️**
+ 
+ ##### URL
+
+```
+http://localhost:3333/passenger
+
+```
+##### headers
+```
+headers:{
+authorization:'Bearer'+ "token do Usuario"
+}
+```
+##### body
+```
+{
+    "name":"carlos",
+    "age":19,
+    "cpf":83546178910
+}
+```
 
 
 
- - **GET (Listar todos os Onibus do usuario cadastrados )**
+- **POST (Adicionar passageiro ao Onibus) 🧍‍♂️🚌**
+ 
+ ##### URL
+
+```
+http://localhost:3333/travel
+
+```
+##### headers
+```
+headers:{
+authorization:'Bearer'+ "token do Usuario"
+}
+```
+##### body
+```
+{
+    "id_bus":"33969260-1e86-43e0-a702-0148325ed34d",
+    "id_passengers":"e8f4ae18-3fd3-44c3-8158-f795252a846a"
+}
+```
+
+
+
+ - **GET (Listar todos os Onibus do usuario cadastrados ) 📗**
  
  ##### URL
 
@@ -146,4 +204,176 @@ Exemplo de resposta:
     "seat_amount": 150                                     
   }
 ```
+
+
+
+ - **GET (Listar os dados de um determiado Onibus)**
+ 
+ ##### URL
+
+```
+http://localhost:3333/bus/{id}
+
+```
+|     Parâmetro       |         Descrição              |
+| ------------------- | ------------------------------ |
+|      {id}           |         Id do Onibus           |
+
+##### headers
+```
+headers:{
+authorization:'Bearer'+ "token do Usuario"
+}
+```
+
+
+Exemplo de resposta:
+
+```
+ {
+  "id": "9b6df088-52e5-460f-ae36-b47f7f9a95d5",
+  "id_user": "4c73034e-51ab-4e20-973b-5e50fc7b5491",
+  "vehicle_plate": "8H930VB6",
+  "year": 2020,
+  "model": "MicroOnibus",
+  "seat_amount": 500
+}
+```
+
+
+
+- **GET (Listar todos os passageiros)**
+ 
+ ##### URL
+
+```
+http://localhost:3333/passenger
+
+```
+##### headers
+```
+headers:{
+authorization:'Bearer'+ "token do Usuario"
+}
+```
+Exemplo de resposta:
+
+```
+[
+  {
+    "id": "6efb5945-3825-459b-b281-b19dba9e9b51",
+    "name": "EDUARDA",
+    "age": 16,
+    "cpf": "42501857819"
+  },
+  {
+    "id": "e8f4ae18-3fd3-44c3-8158-f795252a846a",
+    "name": "carlos",
+    "age": 19,
+    "cpf": "83546178910"
+  }
+]
+```
+
+- **PUT (Alterar dados do Onibus)**
+ 
+ ##### URL
+
+```
+http://localhost:3333/bus/{id}
+
+```
+|     Parâmetro       |         Descrição              |
+| ------------------- | ------------------------------ |
+|      {id}           |         Id do Onibus       |
+
+##### headers
+```
+headers:{
+authorization:'Bearer'+ "token do Usuario"
+}
+```
+##### body
+```
+{
+	"vehicle_plate":"fb6tyhr",
+	"year":2016,
+	"model":"Leito ",
+	"seat_amount":10
+}
+```
+
+
+
+- **PUT (Alterar dados do passageiro)**
+ 
+ ##### URL
+
+```
+http://localhost:3333/passenger/{id}
+
+```
+|     Parâmetro       |         Descrição              |
+| ------------------- | ------------------------------ |
+|      {id}           |         Id do Passageiro       |
+
+##### headers
+```
+headers:{
+authorization:'Bearer'+ "token do Usuario"
+}
+```
+##### body
+```
+{
+    "name": "EDUARDA",
+    "age": 16,
+    "cpf": "42501857819"
+  }
+```
+
+
+
+- **DELETE (Excluir um onibus)**
+ 
+ ##### URL
+
+```
+http://localhost:3333/bus/{id}
+
+```
+|     Parâmetro       |         Descrição              |
+| ------------------- | ------------------------------ |
+|      {id}           |         Id do Onibus           |
+
+##### headers
+```
+headers:{
+authorization:'Bearer'+ "token do Usuario"
+}
+```
+
+- **DELETE (Excluir um Passageiro)**
+ 
+ ##### URL
+
+```
+http://localhost:3333/passenger/{id}
+
+```
+|     Parâmetro       |         Descrição              |
+| ------------------- | ------------------------------ |
+|      {id}           |         Id do Passageiro       |
+
+##### headers
+```
+headers:{
+authorization:'Bearer'+ "token do Usuario"
+}
+```
+
+
+
+
+
 
