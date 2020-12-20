@@ -113,7 +113,7 @@ Example response:
 
 
 
-- **POST (Register Bus) 🚌**
+- **POST (Register Bus) 📄🚌**
  
  ##### URL
 
@@ -188,7 +188,7 @@ authorization:'Bearer'+ "User token"
 
 
 
- - **GET (List all registered user buses) 📗**
+ - **GET (List all registered user buses) 📄📗**
  
  ##### URL
 
@@ -219,7 +219,7 @@ Example response:
 
 
 
- - **GET (List the data of a specific bus)**
+ - **GET (List the data of a specific bus) 🔍🚌**
  
  ##### URL
 
@@ -254,7 +254,7 @@ Example response:
 
 
 
-- **GET (List all passengers)**
+- **GET (List all passengers)📄🧍‍♂️**
  
  ##### URL
 
@@ -287,7 +287,7 @@ Example response:
 ]
 ```
 
-- **PUT (Change Bus data)**
+- **PUT (Change Bus data)🖋🚌**
  
  ##### URL
 
@@ -317,7 +317,7 @@ authorization:'Bearer'+ "User token"
 
 
 
-- **PUT (Change passenger data)**
+- **PUT (Change passenger data)🖋🧍‍♂️**
  
  ##### URL
 
@@ -346,7 +346,7 @@ authorization:'Bearer'+ "User token"
 
 
 
-- **DELETE (Delete a bus)**
+- **DELETE (Delete a bus) 🗑🚌**
  
  ##### URL
 
@@ -365,7 +365,7 @@ authorization:'Bearer'+ "User token"
 }
 ```
 
-- **DELETE (Delete a Passenger)**
+- **DELETE (Delete a Passenger) 🗑🧍‍♂️**
  
  ##### URL
 
