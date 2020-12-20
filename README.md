@@ -386,6 +386,14 @@ authorization:'Bearer'+ "User token"
 
 
 
+## Challenges/Problems
 
+During the execution of the project I found some challenges and problems, but the main ones were.
 
+- Execution of migrations.
+- Upload images
+- Deployment error because of Heroku's execution port.
+- .lock package conflicts.
+- Entities.
+- Bug in Controllers.
 
