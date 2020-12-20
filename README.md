@@ -47,7 +47,7 @@ $ yarn typeorm migration:run
 
 
 
-### 3º-Step(started)
+### 3º-Step(Started)
 
 ```
 $ npm dev
