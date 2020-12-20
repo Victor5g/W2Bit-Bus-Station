@@ -64,22 +64,22 @@ Okay, the API is already running and ready to receive requests.
 
 # Api
 
-### Respostas
+### Replies
 
 
-| Código | Descrição |
+| Code   | Description |
 |---|---|
-| `200` | Requisição executada com sucesso (success).|
-| `400` | Erros de validação ou os campos informados não existem no sistema.|
-| `401` | Dados de acesso inválidos.|
-| `404` | Registro pesquisado não encontrado (Not found).|
+| `200` | Successfully executed requisition.|
+| `400` | Validation errors or the fields reported do not exist in the system.|
+| `401` | Invalid access data.|
+| `404` | Searched record not found.|
 
 
 
 ## Endpoints
 
 
- - **POST (Autenticação) 🔐**
+ - **POST (Authentication) 🔐**
  
  ##### URL
 
@@ -96,7 +96,7 @@ http://localhost:3333/auth
 
 ```
 
-Exemplo de resposta:
+Example response:
 
 ```
   {
@@ -113,7 +113,7 @@ Exemplo de resposta:
 
 
 
-- **POST (Cadastrar Onibus) 🚌**
+- **POST (Register Bus) 🚌**
  
  ##### URL
 
@@ -124,7 +124,7 @@ http://localhost:3333/bus
 ##### headers
 ```
 headers:{
-authorization:'Bearer'+ "token do Usuario"
+authorization:'Bearer'+ "User token"
 }
 ```
 ##### body
@@ -139,7 +139,7 @@ authorization:'Bearer'+ "token do Usuario"
 
 
 
-- **POST (Criar Passageiro) 🧍‍♂️**
+- **POST (Create Passenger) 🧍‍♂️**
  
  ##### URL
 
@@ -150,7 +150,7 @@ http://localhost:3333/passenger
 ##### headers
 ```
 headers:{
-authorization:'Bearer'+ "token do Usuario"
+authorization:'Bearer'+ "User token"
 }
 ```
 ##### body
@@ -164,7 +164,7 @@ authorization:'Bearer'+ "token do Usuario"
 
 
 
-- **POST (Adicionar passageiro ao Onibus) 🧍‍♂️🚌**
+- **POST (Add passenger to Onibus) 🧍‍♂️🚌**
  
  ##### URL
 
@@ -175,7 +175,7 @@ http://localhost:3333/travel
 ##### headers
 ```
 headers:{
-authorization:'Bearer'+ "token do Usuario"
+authorization:'Bearer'+ "User token"
 }
 ```
 ##### body
@@ -188,7 +188,7 @@ authorization:'Bearer'+ "token do Usuario"
 
 
 
- - **GET (Listar todos os Onibus do usuario cadastrados ) 📗**
+ - **GET (List all registered user buses) 📗**
  
  ##### URL
 
@@ -199,12 +199,12 @@ http://localhost:3333/bus
 ##### headers
 ```
 headers:{
-authorization:'Bearer'+ "token do Usuario"
+authorization:'Bearer'+ "User token"
 }
 ```
 
 
-Exemplo de resposta:
+Example response:
 
 ```
   {
@@ -219,7 +219,7 @@ Exemplo de resposta:
 
 
 
- - **GET (Listar os dados de um determiado Onibus)**
+ - **GET (List the data of a specific bus)**
  
  ##### URL
 
@@ -227,19 +227,19 @@ Exemplo de resposta:
 http://localhost:3333/bus/{id}
 
 ```
-|     Parâmetro       |         Descrição              |
+|     Parameter       |         Description            |
 | ------------------- | ------------------------------ |
-|      {id}           |         Id do Onibus           |
+|      {id}           |            Bus Id              |
 
 ##### headers
 ```
 headers:{
-authorization:'Bearer'+ "token do Usuario"
+authorization:'Bearer'+ "User token"
 }
 ```
 
 
-Exemplo de resposta:
+Example response:
 
 ```
  {
@@ -254,7 +254,7 @@ Exemplo de resposta:
 
 
 
-- **GET (Listar todos os passageiros)**
+- **GET (List all passengers)**
  
  ##### URL
 
@@ -265,10 +265,10 @@ http://localhost:3333/passenger
 ##### headers
 ```
 headers:{
-authorization:'Bearer'+ "token do Usuario"
+authorization:'Bearer'+ "User token"
 }
 ```
-Exemplo de resposta:
+Example response:
 
 ```
 [
@@ -287,7 +287,7 @@ Exemplo de resposta:
 ]
 ```
 
-- **PUT (Alterar dados do Onibus)**
+- **PUT (Change Bus data)**
  
  ##### URL
 
@@ -295,14 +295,14 @@ Exemplo de resposta:
 http://localhost:3333/bus/{id}
 
 ```
-|     Parâmetro       |         Descrição              |
-| ------------------- | ------------------------------ |
-|      {id}           |         Id do Onibus       |
+|     Parameter       |         Description           |
+| ------------------- | ------------------------------|
+|      {id}           |            Bus Id             |
 
 ##### headers
 ```
 headers:{
-authorization:'Bearer'+ "token do Usuario"
+authorization:'Bearer'+ "User token"
 }
 ```
 ##### body
@@ -317,7 +317,7 @@ authorization:'Bearer'+ "token do Usuario"
 
 
 
-- **PUT (Alterar dados do passageiro)**
+- **PUT (Change passenger data)**
  
  ##### URL
 
@@ -325,14 +325,14 @@ authorization:'Bearer'+ "token do Usuario"
 http://localhost:3333/passenger/{id}
 
 ```
-|     Parâmetro       |         Descrição              |
+|     Parameter       |         Description            |
 | ------------------- | ------------------------------ |
-|      {id}           |         Id do Passageiro       |
+|      {id}           |          Passenger Id          |
 
 ##### headers
 ```
 headers:{
-authorization:'Bearer'+ "token do Usuario"
+authorization:'Bearer'+ "User token"
 }
 ```
 ##### body
@@ -346,7 +346,7 @@ authorization:'Bearer'+ "token do Usuario"
 
 
 
-- **DELETE (Excluir um onibus)**
+- **DELETE (Delete a bus)**
  
  ##### URL
 
@@ -354,18 +354,18 @@ authorization:'Bearer'+ "token do Usuario"
 http://localhost:3333/bus/{id}
 
 ```
-|     Parâmetro       |         Descrição              |
+|     Parameter       |         Description            |
 | ------------------- | ------------------------------ |
-|      {id}           |         Id do Onibus           |
+|      {id}           |            Bus Id              |
 
 ##### headers
 ```
 headers:{
-authorization:'Bearer'+ "token do Usuario"
+authorization:'Bearer'+ "User token"
 }
 ```
 
-- **DELETE (Excluir um Passageiro)**
+- **DELETE (Delete a Passenger)**
  
  ##### URL
 
@@ -373,14 +373,14 @@ authorization:'Bearer'+ "token do Usuario"
 http://localhost:3333/passenger/{id}
 
 ```
-|     Parâmetro       |         Descrição              |
+|     Parameter       |         Description            |
 | ------------------- | ------------------------------ |
-|      {id}           |         Id do Passageiro       |
+|      {id}           |         Passenger Id           |
 
 ##### headers
 ```
 headers:{
-authorization:'Bearer'+ "token do Usuario"
+authorization:'Bearer'+ "User token"
 }
 ```
 
