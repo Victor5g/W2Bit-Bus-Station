@@ -78,6 +78,34 @@ Okay, the API is already running and ready to receive requests.
 
 ## Endpoints
 
+- **POST (Create user) 📄🧍‍♂️**
+ 
+ ##### URL
+
+```
+http://localhost:3333/users
+
+```
+##### headers
+```
+ headers: {
+         "Content-Type": "multipart/form-data"
+         "Accept": "application/json",
+        " type": "formData"
+      },
+```
+##### body
+```
+{
+     "name": "Morramidy",
+     "image": Foto.png,
+     "state": "United State",
+     "city": "New York",
+     "password": "9DF56HTY78",
+     "id": "f900d543-4150-4441-94aa-e8285c167d57"
+}
+}
+```
 
  - **POST (Authentication) 🔐**
  
