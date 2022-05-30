@@ -82,12 +82,12 @@ Okay, the API is already running and ready to receive requests.
  
  ##### URL
 
-```
+```http
 http://localhost:3333/users
 
 ```
 ##### headers
-```
+```json
  headers: {
          "Content-Type": "multipart/form-data"
          "Accept": "application/json",
@@ -95,7 +95,7 @@ http://localhost:3333/users
       },
 ```
 ##### body
-```
+```json
 {
      "name": "Morramidy",
      "image": Foto.png,
@@ -111,12 +111,12 @@ http://localhost:3333/users
  
  ##### URL
 
-```
+```http
 http://localhost:3333/auth
 
 ```
 ##### body
-```
+```json
   {
  	  "name":"Eduarda Medeiros",
 	   "password":"567890"
@@ -126,7 +126,7 @@ http://localhost:3333/auth
 
 Example response:
 
-```
+```json
   {
   "user": {
     "id": "bf1f87cf-f802-4b8b-b309-9d659bbf3479",                                                          
@@ -145,18 +145,18 @@ Example response:
  
  ##### URL
 
-```
+```http
 http://localhost:3333/bus
 
 ```
 ##### headers
-```
+```json
 headers:{
 authorization:'Bearer'+ "User token"
 }
 ```
 ##### body
-```
+```json
 {
     "vehicle_plate":"4U7JS89",
     "year":"2016",
@@ -171,18 +171,18 @@ authorization:'Bearer'+ "User token"
  
  ##### URL
 
-```
+```http
 http://localhost:3333/passenger
 
 ```
 ##### headers
-```
+```json
 headers:{
 authorization:'Bearer'+ "User token"
 }
 ```
 ##### body
-```
+```json
 {
     "name":"carlos",
     "age":19,
@@ -196,18 +196,18 @@ authorization:'Bearer'+ "User token"
  
  ##### URL
 
-```
+```http
 http://localhost:3333/travel
 
 ```
 ##### headers
-```
+```json
 headers:{
 authorization:'Bearer'+ "User token"
 }
 ```
 ##### body
-```
+```json
 {
     "id_bus":"33969260-1e86-43e0-a702-0148325ed34d",
     "id_passengers":"e8f4ae18-3fd3-44c3-8158-f795252a846a"
@@ -220,12 +220,12 @@ authorization:'Bearer'+ "User token"
  
  ##### URL
 
-```
+```http
 http://localhost:3333/bus
 
 ```
 ##### headers
-```
+```json
 headers:{
 authorization:'Bearer'+ "User token"
 }
@@ -234,7 +234,7 @@ authorization:'Bearer'+ "User token"
 
 Example response:
 
-```
+```json
   {
     "id": "2dc1fb7e-baac-4259-a1b9-d9bd1c8f4f2c",        
     "id_user": "280c2938-d2f6-4b57-bc8d-6ef4cd227f00",    
@@ -251,7 +251,7 @@ Example response:
  
  ##### URL
 
-```
+```http
 http://localhost:3333/bus/{id}
 
 ```
@@ -260,7 +260,7 @@ http://localhost:3333/bus/{id}
 |      {id}           |            Bus Id              |
 
 ##### headers
-```
+```json
 headers:{
 authorization:'Bearer'+ "User token"
 }
@@ -269,7 +269,7 @@ authorization:'Bearer'+ "User token"
 
 Example response:
 
-```
+```json
  {
   "id": "9b6df088-52e5-460f-ae36-b47f7f9a95d5",
   "id_user": "4c73034e-51ab-4e20-973b-5e50fc7b5491",
@@ -286,19 +286,19 @@ Example response:
  
  ##### URL
 
-```
+```json
 http://localhost:3333/passenger
 
 ```
 ##### headers
-```
+```json
 headers:{
 authorization:'Bearer'+ "User token"
 }
 ```
 Example response:
 
-```
+```json
 [
   {
     "id": "6efb5945-3825-459b-b281-b19dba9e9b51",
@@ -319,7 +319,7 @@ Example response:
  
  ##### URL
 
-```
+```http
 http://localhost:3333/bus/{id}
 
 ```
@@ -328,13 +328,13 @@ http://localhost:3333/bus/{id}
 |      {id}           |            Bus Id             |
 
 ##### headers
-```
+```json
 headers:{
 authorization:'Bearer'+ "User token"
 }
 ```
 ##### body
-```
+```json
 {
 	"vehicle_plate":"fb6tyhr",
 	"year":2016,
@@ -349,7 +349,7 @@ authorization:'Bearer'+ "User token"
  
  ##### URL
 
-```
+```http
 http://localhost:3333/passenger/{id}
 
 ```
@@ -358,13 +358,13 @@ http://localhost:3333/passenger/{id}
 |      {id}           |          Passenger Id          |
 
 ##### headers
-```
+```json
 headers:{
 authorization:'Bearer'+ "User token"
 }
 ```
 ##### body
-```
+```json
 {
     "name": "EDUARDA",
     "age": 16,
@@ -378,7 +378,7 @@ authorization:'Bearer'+ "User token"
  
  ##### URL
 
-```
+```http
 http://localhost:3333/bus/{id}
 
 ```
@@ -387,7 +387,7 @@ http://localhost:3333/bus/{id}
 |      {id}           |            Bus Id              |
 
 ##### headers
-```
+```json
 headers:{
 authorization:'Bearer'+ "User token"
 }
@@ -397,7 +397,7 @@ authorization:'Bearer'+ "User token"
  
  ##### URL
 
-```
+```http
 http://localhost:3333/passenger/{id}
 
 ```
@@ -406,7 +406,7 @@ http://localhost:3333/passenger/{id}
 |      {id}           |         Passenger Id           |
 
 ##### headers
-```
+```json
 headers:{
 authorization:'Bearer'+ "User token"
 }
